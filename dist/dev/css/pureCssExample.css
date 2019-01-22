@@ -1,0 +1,156 @@
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* custom properties */
+:root {
+    --fontSize: 1rem;
+    --mainColor: rgba(18,52,86,0.47059);
+    --highlightColor: hwb(190, 35%, 20%);
+    }
+    
+    /* custom properties set & @apply rule */
+    :root {
+      --centered: {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      };
+    }
+    
+    .centered {
+      @apply --centered;
+    }
+    
+    /* custom media queries */
+    
+    /* some var() & calc() */
+    body {
+    color: rgba(18,52,86,0.47059);
+    color: var(--mainColor);
+    
+    font-size: 1rem;
+    
+    font-size: var(--fontSize);
+    line-height: -webkit-calc(1rem * 1.5);
+    line-height: -moz-calc(1rem * 1.5);
+    line-height: calc(1rem * 1.5);
+    line-height: -webkit-calc(var(--fontSize) * 1.5);
+    line-height: -moz-calc(var(--fontSize) * 1.5);
+    line-height: calc(var(--fontSize) * 1.5);
+    padding: -webkit-calc((1rem / 2) + 1px);
+    padding: -moz-calc((1rem / 2) + 1px);
+    padding: calc((1rem / 2) + 1px);
+    padding: -webkit-calc((var(--fontSize) / 2) + 1px);
+    padding: -moz-calc((var(--fontSize) / 2) + 1px);
+    padding: calc((var(--fontSize) / 2) + 1px);
+    }
+    
+    /* custom media query usage */
+    @media (max-width: 50rem) {
+    body { font-size: -webkit-calc(1rem * 1.2); font-size: -moz-calc(1rem * 1.2); font-size: calc(1rem * 1.2); font-size: -webkit-calc(var(--fontSize) * 1.2); font-size: -moz-calc(var(--fontSize) * 1.2); font-size: calc(var(--fontSize) * 1.2); }
+    }
+    
+    /* custom selectors */
+    h1,h2,h3,h4,h5,h6 { margin-top: 0 }
+    
+    /* image-set function */
+    .foo {
+        background-image:
+          
+            url(img/test.png);
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 192dpi) {
+    .foo {
+        background-image:
+          
+            url(img/test-2x.png);
+    }
+}
+    .foo {
+        background-image:
+          -webkit-image-set(
+            url(img/test.png) 1x,
+            url(img/test-2x.png) 2x
+          );
+        background-image:
+          image-set(
+            url(img/test.png) 1x,
+            url(img/test-2x.png) 2x
+          );
+    }
+    
+    /* colors stuff */
+    a {
+    color: hwb(190, 35%, 20%);
+    color: var(--highlightColor);
+    -webkit-transition: color 1s;
+    -o-transition: color 1s;
+    -moz-transition: color 1s;
+    transition: color 1s; /* autoprefixed ! */
+    }
+    a:hover { color: gray(255, 50%) }
+    a:active { color: #639 }
+    a:focus { background-color: rgba(255, 153, 0, 0.33); outline: 3px solid hsl(1turn, 60%, 50%); }
+    a:link,a:visited { color: color(hwb(190, 35%, 20%) blackness(+20%)); color: color(var(--highlightColor) blackness(+20%)) }
+    a:-webkit-any-link { color: color(hwb(190, 35%, 20%) blackness(+20%)); color: color(var(--highlightColor) blackness(+20%)) }
+    a:-moz-any-link { color: color(hwb(190, 35%, 20%) blackness(+20%)); color: color(var(--highlightColor) blackness(+20%)) }
+    a:any-link { color: color(hwb(190, 35%, 20%) blackness(+20%)); color: color(var(--highlightColor) blackness(+20%)) }
+    
+    /* font stuff */
+    h2 {
+    -webkit-font-feature-settings: "c2sc";
+            -moz-font-feature-settings: "c2sc";
+            font-feature-settings: "c2sc";
+    font-variant-caps: small-caps;
+    }
+    
+    table {
+    -webkit-font-feature-settings: "lnum";
+            -moz-font-feature-settings: "lnum";
+            font-feature-settings: "lnum";
+    font-variant-numeric: lining-nums;
+    }
+    
+    /* filters */
+    .blur {
+    -webkit-filter: blur(4px);
+            filter: blur(4px);
+    }
+    .sepia {
+    -webkit-filter: sepia(.8);
+            filter: sepia(.8);
+    }
+    
+    /* overflow-wrap fallback */
+    body {
+    word-wrap: break-word;
+    }
+    
+    /* attribute case insensitive */
+    [frame=hsides],[frame=Hsides],[frame=hSides],[frame=HSides],[frame=hsIdes],[frame=HsIdes],[frame=hSIdes],[frame=HSIdes],[frame=hsiDes],[frame=HsiDes],[frame=hSiDes],[frame=HSiDes],[frame=hsIDes],[frame=HsIDes],[frame=hSIDes],[frame=HSIDes],[frame=hsidEs],[frame=HsidEs],[frame=hSidEs],[frame=HSidEs],[frame=hsIdEs],[frame=HsIdEs],[frame=hSIdEs],[frame=HSIdEs],[frame=hsiDEs],[frame=HsiDEs],[frame=hSiDEs],[frame=HSiDEs],[frame=hsIDEs],[frame=HsIDEs],[frame=hSIDEs],[frame=HSIDEs],[frame=hsideS],[frame=HsideS],[frame=hSideS],[frame=HSideS],[frame=hsIdeS],[frame=HsIdeS],[frame=hSIdeS],[frame=HSIdeS],[frame=hsiDeS],[frame=HsiDeS],[frame=hSiDeS],[frame=HSiDeS],[frame=hsIDeS],[frame=HsIDeS],[frame=hSIDeS],[frame=HSIDeS],[frame=hsidES],[frame=HsidES],[frame=hSidES],[frame=HSidES],[frame=hsIdES],[frame=HsIdES],[frame=hSIdES],[frame=HSIdES],[frame=hsiDES],[frame=HsiDES],[frame=hSiDES],[frame=HSiDES],[frame=hsIDES],[frame=HsIDES],[frame=hSIDES],[frame=HSIDES] {
+    border-style: solid none;
+    }
+    
+    /* system-ui font-family */
+    body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    }
+    
+        

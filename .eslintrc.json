@@ -1,0 +1,33 @@
+{
+    "extends": "airbnb-base",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "commonjs": true,
+        "jquery": true
+    },
+    "rules": {
+        "max-len": ["error", {"code": 150}],
+        "no-ternary": 0,
+        "dot-notation": 0,
+        "no-shadow": 0,
+        "no-unused-expressions": 0,
+        "no-unused-vars": 0,
+        "eslint-disable-next-line": 0,
+        "indent": ["error", 4],
+        "arrow-parens": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-unresolved": 0,
+        "no-underscore-dangle": 0,
+        "no-nested-ternary": 0,
+        "no-empty-function": 0,
+        "no-useless-constructor": 0,
+        "import/no-dynamic-require": 0,
+        "global-require": 0
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
