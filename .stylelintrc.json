@@ -1,0 +1,8 @@
+{
+    "extends": "stylelint-config-recommended-scss",
+    "rules": {
+        "indentation": 4,
+        "block-opening-brace-space-before": "always",
+        "no-descending-specificity": null
+    }
+}

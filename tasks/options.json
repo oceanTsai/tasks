@@ -1,0 +1,199 @@
+{
+    "scss": {
+        "scss": {
+            "outputStyle": "expanded"
+        },
+        "autoprefixer": {
+            "browsers": ["> 0%", "last 10 version", "ie 6-11"],
+            "cascade": false
+        },
+        "cleanCss": {
+        },
+        "path": {
+            "dev": {
+                "src": ["resources/scss/**/*.scss"],
+                "dist": "dist/dev/css"
+            },
+            "prod": {
+                "src": ["resources/scss/**/*.scss"],
+                "dist": "dist/prod/css"
+            }
+        },
+        "taskName": {
+            "dev": "build-scss:dev",
+            "prod": "build-scss:prod",
+            "watch": "watch-scss",
+            "reload": "reload-scss"
+        }
+    },
+    "css": {
+        "autoprefixer": {
+            "browsers": ["> 0%", "last 10 version", "ie 6-11"],
+            "cascade": false
+        },
+        "cleanCss": {
+            "compatibility": "ie7",
+            "keepSpecialComments": "*"
+        },
+        "path": {
+            "dev": {
+                "src": ["resources/css/**/*.css", "!resources/css/lib/**"],
+                "dist": "dist/dev/css"
+            },
+            "prod": {
+                "src": ["resources/css/**/*.css", "!resources/css/lib/**"],
+                "dist": "dist/prod/css"
+            }
+        },
+        "taskName": {
+            "dev": "build-css:dev",
+            "prod": "build-css:prod",
+            "watch": "watch-css",
+            "reload": "reload-css"
+        }
+    },
+    "move": {
+        "html": {
+            "path": {
+                "dev": {
+                    "src": ["resources/htm/**/*.+(htm|html)"],
+                    "dist": "dist/html"
+                },
+                "prod": {
+                    "src": ["resources/htm/**/*.+(htm|html)"],
+                    "dist": "dist/html"
+                }
+            },
+            "taskName": {
+                "dev": "move-html:dev",
+                "prod": "move-html:prod",
+                "watch": "watch-move-html"
+            }
+        },
+        "css_lib": {
+            "path": {
+                "dev": {
+                    "src": ["resources/css/lib/**/*.*"],
+                    "dist": "dist/dev/css/lib"
+                },
+                "prod": {
+                    "src": ["resources/css/lib/**/*.*"],
+                    "dist": "dist/prod/css/lib"
+                }
+            },
+            "taskName": {
+                "dev": "move-css:dev",
+                "prod": "move-css:prod",
+                "watch": "watch-move-css"
+            }
+        },
+        "assets": {
+            "path": {
+                "dev": {
+                    "src": ["resources/assets/**/*.*"],
+                    "dist": "dist/dev/assets"
+                },
+                "prod": {
+                    "src": ["resources/assets/**/*.*"],
+                    "dist": "dist/prod/assets"
+                }
+            },
+            "taskName": {
+                "dev": "move-assets:dev",
+                "prod": "move-assets:prod",
+                "watch": "watch-move-assets"
+            }
+        },
+        "img": {
+            "path": {
+                "dev": {
+                    "src": ["resources/assets/img/**/*.+(png|jpg|svg|gif)"],
+                    "dist": "dist/dev/assets/img"
+                },
+                "prod": {
+                    "src": ["resources/assets/img/**/*.+(png|jpg|svg|gif)"],
+                    "dist": "dist/prod/assets/img"
+                }
+            },
+            "taskName": {
+                "dev": "move-img:dev",
+                "prod": "move-img:prod",
+                "watch": "watch-move-img"
+            }
+        }
+    },
+    "entryJs": {
+        "webpack":{
+            "dev": "./webpack-dev.config.js",
+            "prod": "./webpack-prod.config.js"
+        },
+        "path": {
+            "dev": {
+                "src": ["resources/entry/**/*.js"],
+                "dist": "dist/dev/entry"
+            },
+            "prod": {
+                "src": ["resources/entry/**/*.js"],
+                "dist": "dist/prod/entry"
+            }
+        },
+        "taskName": {
+            "dev": "build-entryjs:dev",
+            "prod": "build-entryjs:prod",
+            "watch": "watch-entryjs",
+            "reload": "reload-entryjs"
+        }
+    },
+    "react": {
+        "path": {
+            "dev": {
+                "src": ["resources/react/**/*.+(js|jsx)"],
+                "dist": "dist/dev/entry"
+            },
+            "prod": {
+                "src": ["resources/entry/**/*.+(js|jsx)"],
+                "dist": "dist/prod/entry"
+            },
+            "gen": {
+                "src": "tasks/generator/template",
+                "dist": {
+                    "entry": "resources/entry",
+                    "react": "resources/react",
+                    "action": "resources/react/actions",
+                    "components": "resources/react/components",
+                    "containers": "resources/react/containers",
+                    "store": "resources/react/store"
+                }
+            }
+        },
+        "taskName": {
+            "watch": "watch-react",
+            "reload": "reload-react",
+            "genEntry": "gen-entry",
+            "genAction": "gen-action",
+            "genContainer": "gen-container",
+            "genComponent": "gen-component",
+            "genStore": "gen-store"
+        }
+    },
+    "vendors": {
+    },
+    "format":{
+        "path": {
+            "dev": {
+                "src": ["resources/**/*.+(js|jsx)"],
+                "dist": "dist/dev/report"
+            },
+            "prod": {
+                "src": ["resources/**/*.+(js|jsx)"],
+                "dist": "dist/prod/report"
+            }
+        },
+        "taskName": {
+            "dev": "build-format:dev",
+            "prod": "build-format:prod",
+            "watch": "watch-format",
+            "reload": "reload-format"
+        }
+    }
+}
