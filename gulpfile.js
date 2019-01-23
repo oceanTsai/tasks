@@ -1,6 +1,6 @@
 const { series, parallel } = require('gulp');
 const {
-    entryJs, scss, css, move, react, format,
+    entryJs, scss, css, move, react, js, format,
 } = require('./tasks/options.json');
 const entryJsTask = require('./tasks/entryTask.js')(entryJs); // 新的js
 const scssTask = require('./tasks/scssTask.js')(scss);
@@ -39,6 +39,7 @@ const scssWatchTask = watchTask(scss, scssTask[scss.taskName.reload]);
 const cssWatchTask = watchTask(css, cssTask[css.taskName.reload]);
 const entryWatchTask = watchTask(entryJs, entryJsTask[entryJs.taskName.reload]);
 const reactWatchTask = watchTask(react, entryJsTask[entryJs.taskName.reload]);
+const jsWatchTask = watchTask(js, entryJsTask[entryJs.taskName.reload]);
 const formatWatchTask = watchTask(format, formatTask[format.taskName.reload]);
 
 // 主要開發會異動項目
@@ -47,6 +48,7 @@ const workWatchTask = parallel(
     cssWatchTask[css.taskName.watch],
     entryWatchTask[entryJs.taskName.watch],
     reactWatchTask[react.taskName.watch],
+    jsWatchTask[js.taskName.watch],
     formatWatchTask[format.taskName.watch],
 );
 
@@ -88,6 +90,7 @@ module.exports = {
     ...cssWatchTask,
     ...entryWatchTask,
     ...reactWatchTask,
+    ...jsWatchTask,
     'watch-work': workWatchTask,
     ...genCode,
     'build:dev': buildDev,
