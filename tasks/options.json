@@ -176,6 +176,22 @@
             "genStore": "gen-store"
         }
     },
+    "js": {
+        "path": {
+            "dev": {
+                "src": ["resources/js/**/*.js"],
+                "dist": "dist/dev/entry"
+            },
+            "prod": {
+                "src": ["resources/entry/**/*.js"],
+                "dist": "dist/prod/entry"
+            }
+        },
+        "taskName": {
+            "watch": "watch-js",
+            "reload": "reload-js"
+        }
+    },
     "vendors": {
     },
     "format":{
